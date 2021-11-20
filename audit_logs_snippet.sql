@@ -5,7 +5,7 @@ WITH tables_scanned AS (
   JSON_VALUE(payload,'$.metadata.jobChange.job.jobName')  AS job_name,
   JSON_VALUE(payload,"$.metadata.jobChange.job.jobConfig.queryConfig.destinationTable") AS target_table
   
-	FROM `bigquery_audit_logs.cloudaudit_googleapis_com_data_access`
+  FROM `bigquery_audit_logs.cloudaudit_googleapis_com_data_access`
   
 	WHERE IFNULL(JSON_EXTRACT(payload,'$.metadata.jobChange'),"") != ""
 ),
